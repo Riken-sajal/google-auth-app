@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import GoogleAuthButton from './components/GoogleAuthButton';
+import Dashboard from './pages/Dashboard';
+import AuthReceiver from './pages/AuthReceiver';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<GoogleAuthButton />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/auth-receiver" element={<AuthReceiver />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
