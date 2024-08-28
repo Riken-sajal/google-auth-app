@@ -14,7 +14,7 @@ const AuthReceiver = () => {
 
     if (code) {
       // Make a request to your Django backend to exchange the code for tokens and user data
-      axios.get(`http://localhost:8000/exchange-code/?code=${code}`)
+      axios.get(`https://api.midfield.ai/exchange-code/?code=${code}`)
         .then(response => {
           const { 'auth-token': authToken, 'user-data': userData } = response.data;
 
